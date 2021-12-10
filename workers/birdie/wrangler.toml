@@ -1,0 +1,12 @@
+name = "birdie"
+type = "webpack"
+
+account_id = "a80effbea4b7ccf7b682bb2de34eaf77"
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2021-12-09"
+
+kv_namespaces = [
+  { binding = "BIRDIE_POSTS", id = "4f2e18ff7cdf43ec98116b888be6df9f", preview_id = "3f65d752108c4cddadd5a9e9d8429eb2" }
+]
