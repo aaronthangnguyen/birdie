@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Input } from "@chakra-ui/react";
+import { Box, Button, Flex, Input, Textarea } from "@chakra-ui/react";
 import axios from "axios";
 import { useRef, useState } from "react";
 
@@ -63,7 +63,7 @@ export const CreatePost = ({ data, onMutate }) => {
           ml={2}
         />
       </Flex>
-      <Input
+      <Textarea
         placeholder="Content"
         value={content}
         onChange={(e) => setContent(e.target.value)}
