@@ -42,8 +42,6 @@ export const CreatePost = ({ data, onMutate }) => {
         },
       }
     );
-
-    onMutate();
   };
   return (
     <Box bgColor="white" boxShadow="md" rounded="lg" p={4} mb={6}>
