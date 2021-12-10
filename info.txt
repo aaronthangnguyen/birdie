@@ -3,4 +3,4 @@ Username: EKQFSx9mJpwJ8ThWHCEGj4b33
 Password: pqwMJR2W
 
 Workers URL: aaronthangnguyen.workers.dev/
-Pages URL: https://birdie.pages.dev/
+Pages URL: birdie.pages.dev/
