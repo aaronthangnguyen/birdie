@@ -2,5 +2,5 @@ Git Credentials:
 Username: EKQFSx9mJpwJ8ThWHCEGj4b33
 Password: pqwMJR2W
 
-Workers URL: aaronthangnguyen.workers.dev/
-Pages URL: birdie.pages.dev/
+Workers URL: https://aaronthangnguyen.workers.dev/posts
+Pages URL: https://birdie.pages.dev/
