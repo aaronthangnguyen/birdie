@@ -22,13 +22,28 @@ router.get("/posts", async () => {
       const value = await BIRDIE_POSTS.get(key.name, { type: "json" });
       values = [...values, { id: key.name, ...value }];
     }
-    return new Response(JSON.stringify(values), {
+    return new Response(JSON.stringify({ posts: values }), {
       headers: headers,
       status: 200,
     });
   } catch (error) {
     return new Response(error, { status: 404 });
   }
+});
+
+// OPTIONS
+router.options("/posts", (request) => {
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, OPTIONS, POST",
+    "Access-Control-Allow-Headers": "referrer, origin, content-type",
+    "Content-Type": "application/json",
+  };
+
+  return new Response(null, {
+    headers: headers,
+    status: 204,
+  });
 });
 
 // POST posts

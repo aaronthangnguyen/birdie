@@ -30,7 +30,9 @@ export default function IndexPage() {
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
 
-  data.sort((first, second) => {
+  const { posts } = data;
+
+  posts.sort((first, second) => {
     const firstTime = new Date(first.createDate);
     const secondTime = new Date(second.createDate);
     return secondTime.getTime() - firstTime.getTime();
@@ -40,12 +42,13 @@ export default function IndexPage() {
     <main>
       <Head>
         <title>Birdie</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Container>
         <Heading size="2xl" fontFamily="Pacifico" m={4} color="gray.900">
           Birdie 🕊
         </Heading>
-        <CreatePost onMutate={mutate} />
+        <CreatePost data={data} onMutate={mutate} />
         <PostList data={data} error={error} />
       </Container>
     </main>

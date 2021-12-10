@@ -1,11 +1,13 @@
 import { Box, Button, Flex, Input } from "@chakra-ui/react";
 import axios from "axios";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
-export const CreatePost = ({ onMutate }) => {
+export const CreatePost = ({ data, onMutate }) => {
   const [title, setTitle] = useState("");
   const [username, setUsername] = useState("");
   const [content, setContent] = useState("");
+
+  const titleInputRef = useRef();
 
   const handleSubmit = async () => {
     const post = {
@@ -13,6 +15,23 @@ export const CreatePost = ({ onMutate }) => {
       username: username,
       content: content,
     };
+
+    titleInputRef?.current.focus();
+    setTitle("");
+    setUsername("");
+    setContent("");
+
+    const { posts } = data;
+    onMutate(
+      {
+        ...data,
+        posts: [
+          { id: "0", createDate: new Date().toJSON(), ...post },
+          ...posts,
+        ],
+      },
+      false
+    );
 
     const response = await axios.post(
       "https://birdie.aaronthangnguyen.workers.dev/posts",
@@ -34,6 +53,7 @@ export const CreatePost = ({ onMutate }) => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           flexGrow={1}
+          ref={titleInputRef}
         />
         <Input
           placeholder="Username"
